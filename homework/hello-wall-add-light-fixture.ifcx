@@ -1,0 +1,95 @@
+{
+  "header": {
+    "id": "homework/hello-wall-add-light-fixture.ifcx",
+    "ifcxVersion": "ifcx_alpha",
+    "dataVersion": "1.0.0",
+    "author": "hanjin.hu@buildingsmart.org",
+    "timestamp": "2026-02-06"
+  },
+  "imports": [
+    { "uri": "https://ifcx.dev/@standards.buildingsmart.org/ifc/core/ifc@v5a.ifcx" },
+    { "uri": "https://ifcx.dev/@openusd.org/usd@v1.ifcx" }
+  ],
+  "schemas": {},
+  "data": [
+    {
+      "path": "44af358b-3160-4063-8a89-a868335ff3b5",
+      "children": {
+        "LightFixture": "f8a3c5e7-2b4d-4f9a-8c6e-1d5f9e3a7b2c"
+      }
+    },
+    {
+      "path": "f8a3c5e7-2b4d-4f9a-8c6e-1d5f9e3a7b2c",
+      "attributes": {
+        "bsi::ifc::class": {
+          "code": "IfcLightFixture",
+          "uri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcLightFixture"
+        }
+      },
+      "children": {
+        "Body": "a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d"
+      }
+    },
+    {
+      "path": "f8a3c5e7-2b4d-4f9a-8c6e-1d5f9e3a7b2c",
+      "attributes": {
+        "usd::xformop": {
+          "transform": [
+            [1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 1, 0],
+            [2.5, 0, 2.5, 1]
+          ]
+        }
+      }
+    },
+    {
+      "path": "a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "attributes": {
+        "usd::usdgeom::mesh": {
+          "faceVertexIndices": [
+            0, 1, 2, 0, 2, 3,
+            4, 5, 6, 4, 6, 7,
+            8, 9, 10, 8, 10, 11,
+            12, 13, 14, 12, 14, 15,
+            16, 17, 18, 16, 18, 19,
+            20, 21, 22, 20, 22, 23
+          ],
+          "points": [
+            [-0.2, -0.2, 0.0],
+            [0.2, -0.2, 0.0],
+            [0.2, 0.2, 0.0],
+            [-0.2, 0.2, 0.0],
+            [-0.2, -0.2, 0.2],
+            [0.2, -0.2, 0.2],
+            [0.2, 0.2, 0.2],
+            [-0.2, 0.2, 0.2],
+            [-0.2, -0.2, 0.0],
+            [-0.2, 0.2, 0.0],
+            [-0.2, 0.2, 0.2],
+            [-0.2, -0.2, 0.2],
+            [0.2, -0.2, 0.0],
+            [0.2, 0.2, 0.0],
+            [0.2, 0.2, 0.2],
+            [0.2, -0.2, 0.2],
+            [-0.2, -0.2, 0.0],
+            [0.2, -0.2, 0.0],
+            [0.2, -0.2, 0.2],
+            [-0.2, -0.2, 0.2],
+            [-0.2, 0.2, 0.0],
+            [0.2, 0.2, 0.0],
+            [0.2, 0.2, 0.2],
+            [-0.2, 0.2, 0.2]
+          ]
+        }
+      }
+    },
+    {
+      "path": "a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "attributes": {
+        "bsi::ifc::presentation::diffuseColor": [0.9, 0.9, 0.7],
+        "bsi::ifc::presentation::opacity": 1
+      }
+    }
+  ]
+}
