@@ -39,14 +39,19 @@ The IFCX format uses a **graph-based structure** where:
 ROOT: ab143723-f7b1-5368-b106-55896e88d768
  │
  └─ My_Project → 14adb22b-d474-48a2-8e8f-6d4c067c1953 (IfcProject)
+     │   [STEP: #1=IfcProject('0KhR8hr7H8eewFRKm6V1bJ',$,'My Project',$,$,$,$,(#14,#26),#9)]
      │
      └─ My_Site → e0834921-e095-40f0-8874-3c6bd1ec699e (IfcSite)
+         │   [STEP: #30=IfcSite('3WWqaXu9L0y8XqF6lHx6cU',$,'My Site',$,$,#53,$,$,$,$,$,$,$,$)]
          │
          └─ My_Building → e84dc79e-fe9d-4781-9f4b-54dd435cca91 (IfcBuilding)
+             │   [STEP: #36=IfcBuilding('3eJSUU$fr7WPzBLDr3NCgH',$,'My Building',$,$,#59,$,$,$,$,$,$)]
              │
              └─ My_Storey → 44af358b-3160-4063-8a89-a868335ff3b5 (IfcBuildingStorey)
+                 │   [STEP: #42=IfcBuildingStorey('14hpMBCM10Oug9g6WpN$Er',$,'My Storey',$,$,#65,$,$,$,$)]
                  │
                  ├─ My_Space → e3035b71-bd9f-4cdc-86fd-b56e2f4605b6 (IfcSpace)
+                 │   │   [STEP: #1494=IfcSpace('3Z0rjnlPzCt8RzjMulHWMs',$,'My Space',$,$,#1515,#1509,$,$,.SPACE.,$)]
                  │   ├─ Body → 15289df1-5ae0-5fc9-8399-19de1fbb87a0
                  │   │   └─ [Mesh geometry defining space volume]
                  │   ├─ Boundary_Wall → c8ecbf4c-e37a-4489-9133-15163b8a904e
@@ -60,6 +65,7 @@ ROOT: ab143723-f7b1-5368-b106-55896e88d768
                  │       └─ [Space boundary relationship to Window #2]
                  │
                  └─ Wall → 93791d5d-5beb-437b-b8ec-2f1f0ba4bf3b (IfcWall)
+                     │   [STEP: #1222=IfcWall('2JUHrTM_j3UxZiBnyBfByx',$,'Wall',$,$,#1235,#1230,$,$)]
                      ├─ Body → 634f90c3-831e-5f29-a9b2-fa69b207821e
                      │   └─ [Mesh geometry with two window openings]
                      ├─ Axis → 8407e490-ceaa-56e5-96df-2351d9110668
@@ -69,8 +75,10 @@ ROOT: ab143723-f7b1-5368-b106-55896e88d768
                      ├─ Basis → 367f7f7d-b4c5-50fe-829a-6bbced170dd1
                      │   └─ [Mesh defining wall base surface]
                      ├─ Window → 2c2d549f-f9fe-4e22-8590-562fda81a690 (IfcWindow)
+                     │   │   [STEP: #1262=IfcWindow('0iBLIV_VvE8eMGLY$QWQQG',$,'Window',$,$,#1349,#1291,$,$,$,$,$,$)]
                      │   └─ [Inherits from windowType: 25503984-6605-43a1-8597-eae657ff5bea]
                      └─ Window_001 → 592504dc-469a-44d6-9ae8-c801b591679b (IfcWindow)
+                         │   [STEP: #1407=IfcWindow('1P9GJSHff4rfheo06raMUR',$,'Window',$,$,#1478,#1435,$,$,$,$,$,$)]
                          └─ [Inherits from windowType: 25503984-6605-43a1-8597-eae657ff5bea]
 ```
 
@@ -87,30 +95,35 @@ ROOT: ab143723-f7b1-5368-b106-55896e88d768
 - **GUID**: `14adb22b-d474-48a2-8e8f-6d4c067c1953`
 - **IFC Class**: IfcProject
 - **Name**: "My Project"
+- **Original STEP Instance**: `#1=IfcProject('0KhR8hr7H8eewFRKm6V1bJ',$,'My Project',$,$,$,$,(#14,#26),#9)`
 - **Children**: Links to "My_Site"
 
 ### Site Entity (IfcSite)
 - **GUID**: `e0834921-e095-40f0-8874-3c6bd1ec699e`
 - **IFC Class**: IfcSite
 - **Name**: "My Site"
+- **Original STEP Instance**: `#30=IfcSite('3WWqaXu9L0y8XqF6lHx6cU',$,'My Site',$,$,#53,$,$,$,$,$,$,$,$)`
 - **Children**: Links to "My_Building"
 
 ### Building Entity (IfcBuilding)
 - **GUID**: `e84dc79e-fe9d-4781-9f4b-54dd435cca91`
 - **IFC Class**: IfcBuilding
 - **Name**: "My Building"
+- **Original STEP Instance**: `#36=IfcBuilding('3eJSUU$fr7WPzBLDr3NCgH',$,'My Building',$,$,#59,$,$,$,$,$,$)`
 - **Children**: Links to "My_Storey"
 
 ### Building Storey Entity (IfcBuildingStorey)
 - **GUID**: `44af358b-3160-4063-8a89-a868335ff3b5`
 - **IFC Class**: IfcBuildingStorey
 - **Name**: "My Storey"
+- **Original STEP Instance**: `#42=IfcBuildingStorey('14hpMBCM10Oug9g6WpN$Er',$,'My Storey',$,$,#65,$,$,$,$)`
 - **Children**: Links to "My_Space" and "Wall"
 
 ### Space Entity (IfcSpace)
 - **GUID**: `e3035b71-bd9f-4cdc-86fd-b56e2f4605b6`
 - **IFC Class**: IfcSpace
 - **Name**: "My Space"
+- **Original STEP Instance**: `#1494=IfcSpace('3Z0rjnlPzCt8RzjMulHWMs',$,'My Space',$,$,#1515,#1509,$,$,.SPACE.,$)`
 - **Volume**: 120.0 m³
 - **Height**: 3.0 m
 - **Visual Properties**:
@@ -123,6 +136,7 @@ ROOT: ab143723-f7b1-5368-b106-55896e88d768
 - **GUID**: `93791d5d-5beb-437b-b8ec-2f1f0ba4bf3b`
 - **IFC Class**: IfcWall
 - **Name**: "Wall"
+- **Original STEP Instance**: `#1222=IfcWall('2JUHrTM_j3UxZiBnyBfByx',$,'Wall',$,$,#1235,#1230,$,$)`
 - **Volume**: 2.784 m³
 - **Height**: 3.0 m
 - **Properties**:
@@ -137,6 +151,7 @@ Both windows inherit from the same window type.
 **Window #1**:
 - **GUID**: `2c2d549f-f9fe-4e22-8590-562fda81a690`
 - **IFC Class**: IfcWindow
+- **Original STEP Instance**: `#1262=IfcWindow('0iBLIV_VvE8eMGLY$QWQQG',$,'Window',$,$,#1349,#1291,$,$,$,$,$,$)`
 - **IsExternal**: true
 - **Transform**: Positioned at (1.767, 0, 1)
 - **Inherits**: windowType → `25503984-6605-43a1-8597-eae657ff5bea`
@@ -144,6 +159,7 @@ Both windows inherit from the same window type.
 **Window #2**:
 - **GUID**: `592504dc-469a-44d6-9ae8-c801b591679b`
 - **IFC Class**: IfcWindow
+- **Original STEP Instance**: `#1407=IfcWindow('1P9GJSHff4rfheo06raMUR',$,'Window',$,$,#1478,#1435,$,$,$,$,$,$)`
 - **IsExternal**: true
 - **Transform**: Positioned at different location
 - **Inherits**: windowType → `25503984-6605-43a1-8597-eae657ff5bea`
@@ -156,6 +172,7 @@ Both windows inherit from the same window type.
 - **GUID**: `25503984-6605-43a1-8597-eae657ff5bea`
 - **IFC Class**: IfcWindow (used as a type/template)
 - **Type Name**: "WT01"
+- **Original STEP Instance**: `#459=IfcWindowType('0bK3c4PWL3eOMNwkPN$rlg',$,'WT01',$,$,$,(#436,#458),$,$,.NOTDEFINED.,.NOTDEFINED.,$,$)`
 - **Volume**: 0.026 m³
 - **Height**: 1.2 m
 
@@ -165,6 +182,7 @@ The window type is **decomposed** into three separate **entities** (not properti
 
 ```
 IfcWindowType: 25503984-6605-43a1-8597-eae657ff5bea
+ │   [STEP: #459=IfcWindowType('0bK3c4PWL3eOMNwkPN$rlg',$,'WT01',$,$,$,(#436,#458),$,$,.NOTDEFINED.,.NOTDEFINED.,$,$)]
  │
  ├─ Void → 8fada721-cff8-590b-8d0b-9300b5fe8e18
  │   ├─ Type: Entity (separate node with its own GUID)
