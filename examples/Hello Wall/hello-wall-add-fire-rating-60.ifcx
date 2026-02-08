@@ -10,20 +10,22 @@
   "schemas": {
     "bsi::ifc::prop::FireRating": {
       "value": {
-          "dataType": "Enum",
-          "enumRestrictions": {
-            "options": ["R30", "R60"]
-          }
+        "dataType": "Enum",
+        "enumRestrictions": {
+          "options": [
+            "R30",
+            "R60"
+          ]
+        }
       }
     }
   },
   "data": [
     {
-      "path":"93791d5d-5beb-437b-b8ec-2f1f0ba4bf3b",
+      "path": "93791d5d-5beb-437b-b8ec-2f1f0ba4bf3b",
       "attributes": {
         "bsi::ifc::prop::FireRating": "R60"
       }
     }
   ]
-
 }
