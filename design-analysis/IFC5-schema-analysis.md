@@ -297,6 +297,84 @@ Should "Window" be `w1`, `w2`, or both? Different semantics needed for different
 
 ---
 
+### Issue #11: GUID Usability and Readability
+
+**Problem:**
+```json
+// Current IFCX requires direct GUID usage everywhere:
+{"path": "93791d5d-5beb-437b-b8ec-2f1f0ba4bf3b", "children": {...}}
+{"path": "e3035b71-bd9f-4cdc-86fd-b56e2f4605b6", "children": {...}}
+
+// References to the wall require repeating the full GUID:
+{
+  "path": "c8ecbf4c-e37a-4489-9133-15163b8a904e",
+  "attributes": {
+    "bsi::ifc::spaceBoundary": {
+      "relatedelement": {"ref": "93791d5d-5beb-437b-b8ec-2f1f0ba4bf3b"}
+    }
+  }
+}
+```
+
+Long GUIDs are cumbersome for human editing, prone to copy-paste errors, and reduce file readability.
+
+**Consequences:**
+- Difficult to manually edit or review IFCX files
+- Error-prone when creating references between entities
+- Reduced code maintainability for generated/templated models
+- Harder to understand file structure during debugging
+- Copy-paste errors leading to broken references
+- Poor developer experience when working with IFCX directly
+
+**Proposed Solution:**
+Add optional `aliases` section to IFCX files to define human-readable names for GUIDs:
+
+```json
+{
+  "header": { /* ... */ },
+  "aliases": {
+    "wall_main": "93791d5d-5beb-437b-b8ec-2f1f0ba4bf3b",
+    "space_livingroom": "e3035b71-bd9f-4cdc-86fd-b56e2f4605b6",
+    "window_01": "2c2d549f-f9fe-4e22-8590-562fda81a690"
+  },
+  "data": [
+    {
+      "path": "$wall_main",
+      "children": {
+        "Window": "$window_01"
+      }
+    },
+    {
+      "path": "boundary_001",
+      "attributes": {
+        "bsi::ifc::spaceBoundary": {
+          "relatedelement": {"ref": "$wall_main"},
+          "relatingspace": {"ref": "$space_livingroom"}
+        }
+      }
+    }
+  ]
+}
+```
+
+**Benefits:**
+- Improved human readability and maintainability
+- Reduced errors when creating entity references
+- Self-documenting files with meaningful names
+- Easier debugging and code review
+- Simplified template-based model generation
+- Better developer experience without changing core GUID-based architecture
+
+**Implementation Considerations:**
+- Aliases are file-scoped (don't cross import boundaries to avoid conflicts)
+- Aliases are optional; direct GUIDs remain valid
+- Parser performs simple string substitution: `$alias_name` → actual GUID
+- Validation ensures all aliases resolve to valid GUIDs
+- Aliases can be used anywhere a GUID reference is expected
+- Tooling can auto-generate aliases when exporting to IFCX
+
+---
+
 ## Recommended Solutions Framework
 
 ### 1. Specification Level
@@ -310,6 +388,7 @@ Should "Window" be `w1`, `w2`, or both? Different semantics needed for different
 - **Precedence Hints**: `"priority": 100` for conflict resolution
 - **Change Operations**: `"operation": "add" | "update" | "delete"`
 - **Dependency Declarations**: Enhanced `imports` with version constraints
+- **GUID Aliases**: Optional `"aliases"` section for human-readable entity names (see Issue #11)
 
 ### 3. Tooling Requirements
 - **Import Graph Validator**: Detect cycles, missing dependencies
