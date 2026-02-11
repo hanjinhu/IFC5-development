@@ -21,9 +21,8 @@ Load order `[overrides, fire-rating]` → R60
 
 **Questions:**
 
-1. How should loading order be specified and enforced (manifest file, import chains, metadata)?
-2. What is the standard way to package and distribute multi-file models to ensure consistency?
-3. Should there be deterministic tie-breakers beyond load order (timestamps, file names, priority levels)?
+1. What is the standard way to package and distribute multi-file models to ensure consistency?
+2. Should there be deterministic tie-breakers beyond load order (timestamps, file names, priority levels)?
 
 ---
 
@@ -46,9 +45,8 @@ How do you delete entities or attributes added in another file?
 
 **Questions:**
 
-1. Is deletion supported? If so, how is it represented in the JSON structure (e.g., `"delete": true`, null values, special paths)?
-2. How should cascading deletions work (parent deleted → what happens to children and references)?
-3. Are operations atomic? What's the order: deletes first, then adds?
+1. How should cascading deletions work (parent deleted → what happens to children and references)?
+2. Are operations atomic? What's the order: deletes first, then adds?
 
 ---
 
